@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model 双向数据绑定 用在表单元素 输入框 单选框 多选框 下拉框 -->
+
+        <!-- 1：输入框 绑定的是value -->
+        <input type="text" v-model="str">
+        <textarea v-model="str"></textarea>
+        <div>{{str}}</div>
+
+        <!-- 2: 单选框 绑定的是value -->
+        <input type="radio" v-model="str2" value="男">男 <br>
+        <input type="radio" v-model="str2" value="女">女
+        <div>{{str2}}</div>
+
+        <!-- 3: 多选框 多个复选框绑定到一个数组， 如果是一个数组，v-model绑定value值-->
+        <input type="checkbox" v-model="str3" value="睡">睡 <br>
+        <input type="checkbox" v-model="str3" value="玩">玩 <br>
+        <input type="checkbox" v-model="str3" value="吃">吃
+        <div>{{str3}}</div>
+        <!-- 单个复选框可以绑定到一个布尔值, 这时v-model绑定checked值 -->
+        <input type="checkbox" v-model="str4">是不是爱学习 <br>
+        <div>{{str4}}</div>
+
+        <!-- 4: 下拉框 v-model绑定的是option的value 单选时是一个字符串，多选时是一个数组-->
+        <select v-model="str5">
+            <option value="111">111</option>
+            <option value="222">222</option>
+            <option value="333">333</option>
+        </select>
+        <div>{{str5}}</div>
+
+        <select  v-model="str6" multiple>
+            <option value="111">111</option>
+            <option value="222">222</option>
+            <option value="333">333</option>
+        </select>
+        <div>{{str6}}</div>
+
+
+
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app', // 告诉vue接管页面的范围
+            data: {
+                str: '',
+                str2: '女',
+                str3: [],
+                str4: false,
+                str5: '',
+                str6: [],
+            },
+
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

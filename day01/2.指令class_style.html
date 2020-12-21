@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        * {
+            margin: 5px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .border {
+            border: 10px solid #ccc;
+        }
+
+        .background {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1：v-bind 绑定 class 值可以是一个字符串，数组 对象  -->
+        <div class="red">王者</div>
+        <hr>
+        <div :class="name1">王者</div>
+        <div :class="name2">王者</div>
+        <div :class="name3">王者</div>
+
+        <!-- 2: v-bind 绑定 style 值可以是一个字符串，对象, 数组 -->
+        <div style="color: red">荣耀</div>
+
+        <div :style="value1">荣耀</div>
+        <div :style="value2">荣耀</div>
+        <div :style="[value2, value3]">荣耀</div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app', // 告诉vue接管页面的范围
+            data: {
+                name1: 'red',
+                name2: ['red', 'border', 'background'],
+                name3: {
+                    red: false,
+                    border: true,
+                    background: false,
+                },
+                value1: 'color: red',
+
+                value2: {
+                    color: 'green',
+                    background: '#ccc',
+                },
+                value3: {
+                    fontSize: '30px'  // font-size
+                }
+            },
+            methods: {
+
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

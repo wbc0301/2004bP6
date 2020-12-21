@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 差值表达式 里边可以写任何js表达式 -->
+        <div>
+            {{'msg'}}
+            {{msg}}
+            {{1+1}}
+            {{1+'a'}}
+            {{1===2 ? '你真聪明': '笨蛋'}}
+        </div>
+        <a href="http://www.baidu.com"></a>
+        <hr>
+        <!-- 1: 指令 v-text v-html -->
+        <div v-text="msg"></div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+
+        <!-- 2: v-bind 可以绑定任何HTML属性，绑定后，属性的值就应该是一个变量-->
+        <a href="http://www.baidu.com">百度</a>
+        <a v-bind:href="url">百度</a>
+        <a :href="url">百度</a> <!-- 简写 -->
+        <img src="//bpic.588ku.com/ad_diversion/20/11/11/b296ba6b9184879b78d5077506552ef5.gif" alt="">
+        <img v-bind:src="imgsrc" alt="">
+
+        <!-- 3：v-on 绑定dom事件 v-on:事件名="事件处理函数" -->
+        <button v-on:click="handler">改变图片</button>
+
+        <!-- 4: v-if 当后边的表达式的值为true时展示，false时不展示-->
+        <div v-if="flag === '1'">111</div>
+        <div v-else-if=" flag=== 2">222</div>
+        <div v-else>333</div>
+
+        <!-- 5: v-show -->
+        <div v-show="flag === 1">111</div>
+
+        <!-- 6: v-for 可以循环数组 对象 字符串 数字 -->
+        <ul>
+            <li v-for="(item, index) in list">{{item}} --- {{index}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item, key, index) in obj">{{item}}---{{key}}---{{index}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item, index) in msg2">{{item}}---{{index}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item, index) in msg">{{item}}---{{index}}</li>
+        </ul>
+
+
+    </div>
+
+    <script>
+        /*
+            面向数据编程 数据驱动
+            指令：v-开头的HTML属性 
+         */
+        new Vue({
+            el: '#app', // 告诉vue接管页面的范围
+            data: {
+                msg: 3,
+                msg2: '<h1>h1</h1>',
+                url: 'http://www.baidu.com',
+                imgsrc: '//bpic.588ku.com/ad_diversion/20/11/11/b296ba6b9184879b78d5077506552ef5.gif',
+                flag: 2,
+                list: [123, 456, 789],
+                obj: {name: 'zs', age: '18'}
+            },
+            methods: {
+                handler() { // 我们可以通过 this获取到data里边所有数据 
+                    this.imgsrc = '//bpic.588ku.com/ad_diversion/20/11/11/69d94db8cb289888815ca07f09295277.gif'
+                },
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

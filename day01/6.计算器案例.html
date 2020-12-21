@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="num1">
+
+        <select  v-model="exec" >
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+
+        <input type="text" v-model="num2">
+
+        <button @click="handler">计算</button>
+        <div>{{result}}</div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app', // 告诉vue接管页面的范围
+            data: {
+                num1: '',
+                num2: '',
+                exec: '+',
+                result: ''
+            },
+            methods: {
+                handler() {
+                    let result;
+                    let num1 = Number(this.num1);
+                    let num2 = Number(this.num2);
+                    
+                    switch(this.exec) {
+                        case '+' :
+                        result = num1 + num2;
+                        break
+
+                        case '-' :
+                        result = num1 - num2;
+                        break
+
+                        case '*' :
+                        result = num1 * num2;
+                        break
+
+                        case '/' :
+                        result = num1 / num2;
+                        break
+
+                    }
+                    this.result = result;
+                }
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

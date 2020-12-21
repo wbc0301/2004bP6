@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-on 事件绑定 绑定时如果没有()，事件处理函数可以接受事件对象这个参数
+        如果要传递参数可以在绑定是使用(),传参，如果同时需要事件对象，可以传入$event这个vue提供的变量-->
+        <!-- 简写 @ -->
+        <div @click="handler('你真棒', $event)">成功</div>
+        <div @click="handler('你真笨', $event)">失败</div>
+
+        <input type="text" @keyup.enter="handler2"> <!-- 事件修饰符 enter space right left ... ... -->
+        <input type="text" @keyup.space="handler2">
+
+        <a href="http://baidu.com">
+            <button @click.prevent.stop="handler2">点击</button> <!-- 事件修饰符 阻止冒泡 浏览器的默认行为 -->
+        </a>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app', // 告诉vue接管页面的范围
+            data: {
+
+            },
+            methods: {
+                handler(val, e) {
+                    alert(val)
+                    console.log(e);
+                },
+                handler2() {
+                    alert(22)
+                }
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

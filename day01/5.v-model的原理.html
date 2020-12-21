@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model 原理 -->
+        <input type="text" v-model="str">
+        <!-- v-model其实就是 :value  和 @input 的语法糖    
+    如果一个功能可以用一个简单的方法实现，那这个简单的写法就叫做复杂写法的语法糖 -->
+        <input type="text" :value="str2" @input="hander">
+        {{str2}}
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app', // 告诉vue接管页面的范围
+            data: {
+                str: '',
+                str2: '123'
+            },
+            methods: {
+                hander(e) {
+                    console.log(e.target.value);
+                    this.str2 = e.target.value
+                }
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

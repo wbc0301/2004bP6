@@ -1,0 +1,8 @@
+{
+    "list": [
+        { "id": "001", "title": "酒水饮料", "desc": "aaa", "url": "//bpic.588ku.com/element_pic/20/11/01/242eb53fd15150cd808be2343749ba15.jpg!/fw/253/quality/90/unsharp/true/compress/true"},
+        { "id": "002", "title": "运动户外", "desc": "bbb", "url": "//bpic.588ku.com/element_pic/20/10/26/09465cd39a871713c1f14e589f0ebd60.jpg!/fw/253/quality/90/unsharp/true/compress/true"},
+        { "id": "003", "title": "手机数码", "desc": "ccc", "url": "//bpic.588ku.com/element_pic/20/07/01/83a86f0f67e3e82ac1575c967e55e7fa.jpg!/fw/253/quality/90/unsharp/true/compress/true"},
+        { "id": "004", "title": "汽车用品", "desc": "ddd", "url": "//bpic.588ku.com/element_pic/20/07/01/b95954783bac0592ef12c5a7c9b2c143.jpg!/fw/253/quality/90/unsharp/true/compress/true"}
+    ]
+}
