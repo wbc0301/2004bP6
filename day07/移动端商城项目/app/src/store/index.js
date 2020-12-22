@@ -58,6 +58,10 @@ export default new Vuex.Store({
                     state.cartList.push(obj);
                 }
             }
+        },
+
+        delCartData(state, index) { // 删除购物车里边的商品
+            state.cartList.splice(index, 1);
         }
     },
     getters:{ // 可以类比计算属性

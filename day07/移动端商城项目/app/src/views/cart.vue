@@ -1,7 +1,7 @@
 <template>
 	<div class='cart'>
 
-		<van-checkbox-group v-model="selectedGoods">
+		<van-checkbox-group v-model="selectedGoods"  ref="checkboxGroup">
 			<van-checkbox :name="item" v-for="(item, index) in $store.state.cartList" :key="item._id">
 				<van-card :price="item.price" desc="描述信息" :title="item.title" :thumb="item.pic">
 					<template #footer>
@@ -12,8 +12,11 @@
 			</van-checkbox>
 		</van-checkbox-group>
 
+        <!-- <div ref="aa">我是一个divaa</div>
+        <div ref="bb">我是一个divbb</div> -->
+
 		<van-submit-bar :price="allPrice" button-text="提交订单" @submit="onSubmit">
-			<van-checkbox v-model="checked">全选</van-checkbox>
+			<van-checkbox v-model="checked" @click="allCheck">全选</van-checkbox>
 		</van-submit-bar>
 
 	</div>
@@ -37,13 +40,29 @@ export default {
 			return price;
 		},
 	},
-	mounted() {},
+	mounted() {
+        // console.log(this.$refs.aa.innerHTML)
+        // console.log(this.$refs.bb)
+    },
 	methods: {
 		del(index) {
-			// this.selectedGoods.splice(index, 1);
+			this.$store.commit('delCartData', index);
 		},
+		allCheck() {
+            this.$refs.checkboxGroup.toggleAll(this.checked);
+        },
 		onSubmit() {},
-	},
+    },
+    watch: {
+        selectedGoods(newValue, oldValue) { // 监听selectedGoods的变化
+            // alert(newValue.length)
+            if(newValue.length != this.$store.state.cartList.length) {
+                this.checked = false;
+            } else {
+                this.checked = true;
+            }
+        }
+    }
 };
 </script>
 
