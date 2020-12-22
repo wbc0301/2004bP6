@@ -9,27 +9,40 @@
 
 		<van-goods-action>
 			<van-goods-action-icon icon="chat-o" text="客服" dot />
-			<van-goods-action-icon icon="cart-o" text="购物车" badge="1" to="/cart" />
+			<van-goods-action-icon icon="cart-o" text="购物车" :badge="$store.getters.allNum" to="/cart" />
 			<van-goods-action-icon icon="shop-o" text="店铺" />
-			<van-goods-action-button type="warning" text="加入购物车" />
+			<van-goods-action-button type="warning" text="加入购物车" @click="add" />
 			<van-goods-action-button type="danger" text="立即购买" />
 		</van-goods-action>
 	</div>
 </template>
 
 <script>
+import { Toast } from "vant";
 export default {
 	data() {
 		return {
 			data: {},
 		};
-	},
+    },
+    computed:{},
 	mounted() {
-        // this.data = this.$route.params.data;
-        this.data = this.$store.state.detailData;
-        console.log(this.$store.state.detailData)
+		// this.data = this.$route.params.data;
+		this.data = this.$store.state.detailData;
+		console.log(this.$store.state.detailData);
 	},
-	methods: {},
+	methods: {
+		add() {
+			// 加入购物车
+			this.$store.commit("addCartList", this.data);
+			Toast('添加成功！');
+			// Toast.loading({
+			// 	message: "加载中...",
+            //     forbidClick: false,
+            //     duration: 5000
+			// });
+		},
+	},
 };
 </script>
 

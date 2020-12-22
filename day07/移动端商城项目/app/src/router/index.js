@@ -16,6 +16,7 @@ const routes = [
         path: '/',
         name: 'hasBottomNav',
         component: hasBottomNav,
+        redirect: '/home', // 路由重定向
         children:[
             {
                 path: '/home',
