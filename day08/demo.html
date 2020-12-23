@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+    let arr = [{id: '王麻子'}, {id: '黄四郎'}]
+    // 判断女朋友在不在
+    let flag = false;
+        arr.forEach(item => {
+            if(item.id === '女朋友') {
+                item.present = '玫瑰'
+                flag = true;
+            }
+        })
+        if(!flag) {
+            arr.push({id: '女朋友'})
+        }
+
+        console.log(arr)
+
+
+</script>
+
+</body>
+</html>
