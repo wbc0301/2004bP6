@@ -3,11 +3,11 @@ import VueRouter from 'vue-router'
 
 import home from '../views/home.vue'
 import hasBottomNav from '../views/hasBottomNav.vue'
-import hot from '../views/hot.vue'
-import my from '../views/my.vue'
-import login from '../views/login.vue'
-import detail from '../views/detail.vue'
-import cart from '../views/cart.vue'
+// import hot from '../views/hot.vue'
+// import my from '../views/my.vue'
+// import login from '../views/login.vue'
+// import detail from '../views/detail.vue'
+// import cart from '../views/cart.vue'
 
 import cookie from '@/utils/cookie'
 
@@ -31,7 +31,8 @@ const routes = [
             {
                 path: '/hot',
                 name: 'hot',
-                component: hot,
+                // component: hot, 
+                component: () => import('../views/hot.vue'), // 路由加载
                 meta: {
                     needLogin: false,
                 }
@@ -39,7 +40,8 @@ const routes = [
             {
                 path: '/my',
                 name: 'my',
-                component: my,
+                // component: my,
+                component: () => import('../views/my.vue'), // 路由加载
                 meta: {
                     needLogin: true,
                 }
@@ -49,7 +51,8 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: login,
+        // component: login,
+        component: () => import('../views/login.vue'), // 路由加载
         meta: {
             needLogin: false,
         }
@@ -57,7 +60,8 @@ const routes = [
     {
         path: '/detail',
         name: 'detail',
-        component: detail,
+        // component: detail,
+        component: () => import('../views/detail.vue'), // 路由加载
         meta: {
             needLogin: true,
         }
@@ -65,7 +69,8 @@ const routes = [
     {
         path: '/cart',
         name: 'cart',
-        component: cart,
+        // component: cart,
+        component: () => import('../views/cart.vue'), // 路由加载
         meta: {
             needLogin: true,
         }
@@ -74,7 +79,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'history', // h5的 history路由   兼容性不太好，
+    // mode: 'hash', // hash路由 浏览器兼容性好
     base: process.env.BASE_URL,
     routes
 })

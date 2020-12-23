@@ -16,8 +16,17 @@ Vue.prototype.$axios = axios; // 在所有的组件中都可以使用 this.$axio
 import cookie from '@/utils/cookie'
 Vue.prototype.$cookie = cookie; // 在所有的组件中都可以使用 this.$cookie 访问到 cookie
 
+
+// 图片懒加载
+import { Lazyload } from 'vant';
+Vue.use(Lazyload);
+// 注册时可以配置额外的选项
+Vue.use(Lazyload, {
+    lazyComponent: true,
+});
+
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

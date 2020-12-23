@@ -35,61 +35,6 @@
                     ]
                 },
                 {
-                    "_id": "5a0430dsaf61010e711234661449",
-                    "title": "水井坊 臻酿八號 ",
-                    "cid": "5a042f27010e711234661446",
-                    "num": 1,
-                    "price": 118,
-                    "old_price": "339",
-                    "pic": "http://jd.itying.com/upload/18s-6j6E0lWogcW3mJ4C41iv.png",
-                    "s_pic": [
-                        "http://jd.itying.com/upload/18s-6j6E0lWogcW3mJ4C41iv.png_200x200.png",
-                        "http://jd.itying.com/upload/18s-6j6E0lWogcW3mJ4C41iv.png_200x200.png",
-                        "http://jd.itying.com/upload/18s-6j6E0lWogcW3mJ4C41iv.png_200x200.png",
-                        "http://jd.itying.com/upload/18s-6j6E0lWogcW3mJ4C41iv.png_200x200.png"
-                    ]
-                },
-                {
-                    "_id": "5a0431asdf83010e71123466144a",
-                    "title": "筱姿秋之礼赞2017冬季新款女装复古绣花羽绒服毛领连帽中长款外套 ",
-                    "cid": "59f1e5019bfd8f3bd030eeda",
-                    "num": 1,
-                    "price": 688,
-                    "old_price": "888",
-                    "pic": "http://jd.itying.com/upload/Dis4macgQjbtEzWNVxPl_mhE.png",
-                    "s_pic": [
-                        "http://jd.itying.com/upload/Dis4macgQjbtEzWNVxPl_mhE.png_200x200.png",
-                        "http://jd.itying.com/upload/Dis4macgQjbtEzWNVxPl_mhE.png_200x200.png"
-                    ]
-                },
-                {
-                    "_id": "5a687fgadsff470d8fb0ab4f684d7",
-                    "title": " Node.js入门到实战项目视频教程",
-                    "cid": "5a680a6270d8fb0ab4f6848e",
-                    "num": 1,
-                    "price": 120,
-                    "old_price": "",
-                    "pic": "http://jd.itying.com/upload/L8wBAmA58qbDoN7wagKxhI9D.jpg",
-                    "s_pic": [
-                        "http://jd.itying.com/upload/L8wBAmA58qbDoN7wagKxhI9D.jpg_200x200.jpg",
-                        "http://jd.itying.com/upload/L8wBAmA58qbDoN7wagKxhI9D.jpg_200x200.jpg",
-                        "http://jd.itying.com/upload/L8wBAmA58qbDoN7wagKxhI9D.jpg_200x200.jpg"
-                    ]
-                },
-                {
-                    "_id": "5a68801e7ewqr0d8fb0ab4f684d8",
-                    "title": "  Node.js+Express视频教程",
-                    "cid": "5a680a6270d8fb0ab4f6848e",
-                    "num": 1,
-                    "price": 38,
-                    "old_price": "38",
-                    "pic": "http://jd.itying.com/upload/FAjBWlWs7BvhlyppPfpjD47N.jpg",
-                    "s_pic": [
-                        "http://jd.itying.com/upload/FAjBWlWs7BvhlyppPfpjD47N.jpg_200x200.jpg",
-                        "http://jd.itying.com/upload/FAjBWlWs7BvhlyppPfpjD47N.jpg_200x200.jpg"
-                    ]
-                },
-                {
                     "_id": "5a012cba64604635f4a2eae0",
                     "title": "小米 红米5A 全网通版 2GB+16GB 香槟金",
                     "cid": "59f1e1ada1da8b15d42234e9",

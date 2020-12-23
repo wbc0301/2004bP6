@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-        <myheader title="首页"></myheader>
+		<myheader title="首页"></myheader>
 		<van-tabs v-model="active">
 			<van-tab v-for="item in list" :key="item.id" :title="item.type">
 				<!-- {{item.arr}} -->
@@ -8,18 +8,14 @@
 					<span>综合</span>
 					<div @click="sortGoods">
 						价格
-						<van-icon class="icon up" name="play"  :class="{red: sortType === '升序'}"/>
-						<van-icon class="icon down" name="play"  :class="{red:  sortType === '降序'}"/>
+						<van-icon class="icon up" name="play" :class="{red: sortType === '升序'}" />
+						<van-icon class="icon down" name="play" :class="{red:  sortType === '降序'}" />
 					</div>
 					<span>销量</span>
 				</div>
 				<van-grid :border="true" :column-num="2">
-					<van-grid-item
-						v-for="ele in item.arr"
-						:key="ele._id"
-						@click="toDetail(ele)"
-					>
-						<img :src="ele.pic" alt="" />
+					<van-grid-item v-for="ele in item.arr" :key="ele._id" @click="toDetail(ele)">
+						<img  v-lazy="ele.pic" alt />
 						<div class="title">{{ ele.title }}</div>
 						<div class="price-box">
 							<span class="price">￥{{ ele.price }}</span>
@@ -47,8 +43,8 @@ export default {
 		this.$axios({ url: "/list.json", methods: "get" }).then((res) => {
 			this.list = res.data.list;
 		});
-    },
-        components:{myheader: header},
+	},
+	components: { myheader: header },
 	methods: {
 		toDetail(ele) {
 
@@ -61,7 +57,7 @@ export default {
 		},
 		sortGoods() { // 价格排序
 			if (this.sortType === '默认排序') { // 默认排序
-                this.listCopy = JSON.parse(JSON.stringify(this.list)) // 拷贝默认排序的数据
+				this.listCopy = JSON.parse(JSON.stringify(this.list)) // 拷贝默认排序的数据
 				this.sortType = '升序'
 				this.list.forEach(item => {
 					item.arr.sort((a, b) => {
@@ -76,8 +72,8 @@ export default {
 					})
 				});
 			} else if (this.sortType === '降序') { // 降序
-                this.sortType = '默认排序'
-                this.list = this.listCopy
+				this.sortType = '默认排序'
+				this.list = this.listCopy
 			}
 		}
 	},
@@ -89,11 +85,11 @@ export default {
 	/deep/ {
 		[class*="van-hairline"]::after {
 			border-color: #aaa;
-        }
-        .van-grid {
-            max-height: calc(100vh - 181px);
-            overflow: auto;
-        }
+		}
+		.van-grid {
+			max-height: calc(100vh - 181px);
+			overflow: auto;
+		}
 	}
 	img {
 		width: 100%;
