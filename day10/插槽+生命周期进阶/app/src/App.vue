@@ -1,5 +1,6 @@
 <template>
     <div class='app'>
+        
         <one></one>
         <child></child>
         <one>

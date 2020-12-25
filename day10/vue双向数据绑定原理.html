@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+
+
+    <script>
+
+        // var data = {}
+        // data.name = '张小三儿';
+
+        // console.log(data)
+
+        var data2 = {}
+
+        // 监听数据的变化
+        Object.defineProperty(data2, 'name', {
+            get() {
+                console.log('有人读name的值了：')
+                return '李小四儿'
+            },
+            set(val) {
+                document.getElementById('box').innerHTML = val;
+                console.log('有人改name的值了：', val)
+            }
+        })
+
+        data2.name
+        data2.name = '王小五儿'
+        
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -40,7 +40,7 @@ export default {
 		};
 	},
 	mounted() {
-
+        
         // // 前端模拟数据
 		// this.$axios({ url: "/list.json", methods: "get" }).then((res) => {
 		// 	this.list = res.data.list;
@@ -53,6 +53,7 @@ export default {
         }).then(res => {
             // console.log(res.data.data.list)
             this.list = res.data.data.list;
+            console.log(this.list)
         })
 
 	},
