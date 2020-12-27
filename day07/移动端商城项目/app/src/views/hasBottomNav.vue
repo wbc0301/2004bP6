@@ -1,7 +1,6 @@
 <template>
 	<div class="hasBottomNav">
 		<transition>
-			<!-- <div v-if="aa">dasdfasdfasdfasdfasdfasdfasdfasdfsdfasd</div> -->
 			<router-view></router-view>
 		</transition>
 
