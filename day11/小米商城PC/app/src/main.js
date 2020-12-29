@@ -16,6 +16,10 @@ Vue.use(ElementUI);
 import axios from 'axios';
 Vue.prototype.$axios = axios;
 
+// 懒加载进入
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
 new Vue({
   router,
   store,

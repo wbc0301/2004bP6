@@ -1,8 +1,11 @@
 <template>
 	<div class="goods">
 		<ul>
-			<li v-for="item in aa" :key="item.product_id" @click="toDetail">
-				<img :src="item.product_picture" alt />
+			<li v-for="item in aa" :key="item.product_id" @click="toDetail(item)">
+
+                <!-- 图片懒加载 -->
+				<img v-lazy="item.product_picture" alt />
+
 				<div class="name">{{item.product_name}}</div>
 				<div class="intro">{{item.product_title}}</div>
 				<div class="price">
@@ -22,8 +25,9 @@ export default {
 	},
 	mounted() { },
 	methods: {
-        toDetail() {
-            this.$router.push('/detail')
+        toDetail(obj) {
+            this.$router.push('/detail');
+            this.$store.commit('changeDetailData', obj);
         }
     },
 };
