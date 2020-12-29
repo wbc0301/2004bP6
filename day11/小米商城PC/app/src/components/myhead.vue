@@ -2,7 +2,9 @@
 	<div class="myhead">
 		<div class="top">
 			<div class="content">
-				<span>欢迎：abc</span>
+                <span v-if="$store.state.userName">您好：{{$store.state.userName}}</span>
+				<span v-else @click="login">登录</span>
+                
 				<router-link tag="span" to="/order">订单</router-link>
 				<router-link tag="span" to="/collect">收藏</router-link>
 				<router-link tag="span" to="/cart">购物车(10)</router-link>
@@ -23,7 +25,11 @@ export default {
 		return {};
 	},
 	mounted() { },
-	methods: {},
+	methods: {
+        login() {
+            this.$store.commit('changeShowLogin', true)
+        }
+    },
 };
 </script>
 
