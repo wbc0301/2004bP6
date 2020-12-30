@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数
+        function Person(name) {
+            this.name = name
+            // return this
+        }
+        Person.prototype.say = function() {
+            console.log('我是一个构造函数new出来的对象')
+        }
+
+        let p = new Person('zs')
+        console.log(p)
+
+        // class 就是构造函数的语法糖 es6
+        class Farther {
+            constructor(name) { // 名字是固定的
+                console.log('constructor')
+                this.name = name;
+            }
+            say() {
+                console.log('我是一个class类new出来的对象')
+            }
+        }
+        let f = new Farther('张三')
+        console.log(f)
+
+        // 父类
+        class Farther2 {
+            constructor() { // 名字是固定的
+                this.country = '中国'
+            }
+            say() {
+                console.log('我是父亲')
+            }
+        }
+
+        class Children extends Farther2 { //继承父类Farther2
+            constructor(name) { // 名字是固定的
+                super()  // super代表父类
+                this.name = name;
+            }
+        }
+
+        let c = new Children('小三儿儿')
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
