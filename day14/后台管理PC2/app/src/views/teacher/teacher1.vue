@@ -1,5 +1,5 @@
 <template>
-	<div class>
+	<div class="teacher1">
 		<h1>人员管理</h1>
 		<el-form ref="form" :model="form" label-width="80px" :inline="true">
 			<el-form-item label="名称">
@@ -26,6 +26,7 @@
 
 		<el-button type="primary" @click="del">删除选中</el-button>
 
+		<!-- <el-table :data="listShow" style="width: 100%" @selection-change="selectChange" v-loading="loading"> -->
 		<el-table :data="listShow" style="width: 100%" @selection-change="selectChange">
 			<el-table-column type="selection" width="55"></el-table-column>
 
@@ -73,6 +74,9 @@
 				<el-button type="primary" @click="comfirm">确 定</el-button>
 			</span>
 		</el-dialog>
+
+		<!-- 回到顶部 -->
+		<el-backtop target=".el-table"></el-backtop>
 	</div>
 </template>
 
@@ -80,6 +84,7 @@
 export default {
 	data() {
 		return {
+			loading: true,
 			editingId: '',
 			showEdit: false, // 编辑弹窗是否展示
 			form: {
@@ -95,7 +100,7 @@ export default {
 			list: [], //所有的数据
 			listCopy: [], //所有的数据拷贝
 			// listShow: [], // 每页要展示的数据
-			pageSize: 5,
+			pageSize: 25,
 			currentPage: 1,
 			selectedList: [],
 		}
@@ -140,7 +145,7 @@ export default {
 
 			for (var i = this.list.length - 1; i > 0; i--) {
 				this.selectedList.forEach(item => {
-					if ( this.list[i].uid === item.uid) {
+					if (this.list[i].uid === item.uid) {
 						this.list.splice(i, 1)
 					}
 				})
@@ -202,18 +207,49 @@ export default {
 		}
 	},
 	mounted() {
+		// 开始全局的loading
+		const loading = this.$loading({
+			lock: true,
+			text: 'Loading',
+			spinner: 'el-icon-loading',
+			background: 'rgba(0, 0, 0, 0.7)'
+		});
+
 		this.$axios({ url: '/list.json', method: 'get', }).then(res => {
 			this.list = res.data
 			this.listCopy = JSON.parse(JSON.stringify(this.list))
+			// this.loading = false; // 取消局部loading动画
+			loading.close(); //取消全局的loading动画
 		})
+
+
+		// const loading = this.$loading({
+		//     lock: true,
+		//     text: 'Loading',
+		//     spinner: 'el-icon-loading',
+		//     background: 'rgba(0, 0, 0, 0.7)'
+		// });
+		// setTimeout(() => {
+		//     loading.close();
+		// }, 2000);
+
+
 	}
 }
 </script>
 
 <style lang='scss' scoped>
-h1 {
-	font-size: 28px;
-	font-weight: bold;
-	padding-bottom: 20px;
+.teacher1 {
+	h1 {
+		font-size: 28px;
+		font-weight: bold;
+		padding-bottom: 20px;
+	}
+    /deep/ {
+        .el-table {
+            height: 500px;
+            overflow: auto;
+        }
+    }
 }
 </style>
