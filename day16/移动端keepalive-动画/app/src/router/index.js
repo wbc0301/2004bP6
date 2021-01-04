@@ -80,6 +80,28 @@ const routes = [
         name: 'zl',
         component: () => import('../views/zl.vue'), // 路由加载
     },
+    {
+        path: '/dh',
+        name: 'dh',
+        component: () => import('../views/dh.vue'), // 路由加载
+        children: [
+            {
+                path: '/dh/a',
+                name: 'a',
+                component: () => import('../components/a.vue'), // 路由加载
+            },
+            {
+                path: 'b',
+                name: 'b',
+                component: () => import('../components/b.vue'), // 路由加载
+            },
+            {
+                path: 'c',
+                name: 'c',
+                component: () => import('../components/c.vue'), // 路由加载
+            },
+        ]
+    },
 
 ]
 
