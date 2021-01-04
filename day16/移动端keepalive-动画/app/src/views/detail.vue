@@ -31,6 +31,7 @@ export default {
     computed:{},
         components:{myheader: header},
 	mounted() {
+        console.log('mounted')
 		// this.data = this.$route.params.data;
 		this.data = this.$store.state.detailData;
 		console.log(this.$store.state.detailData);
