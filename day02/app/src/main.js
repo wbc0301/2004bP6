@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import App from './04.图书管理案例.vue'
+import App from './01.自定指令.vue'
+// import App from './04.图书管理案例.vue'
 
 Vue.config.productionTip = false
 

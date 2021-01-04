@@ -75,6 +75,11 @@ const routes = [
             needLogin: true,
         }
     },
+    {
+        path: '/zl',
+        name: 'zl',
+        component: () => import('../views/zl.vue'), // 路由加载
+    },
 
 ]
 

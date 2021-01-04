@@ -17,6 +17,17 @@ Vue.prototype.$axios = axios; // 在所有的组件中都可以使用 this.$axio
 import cookie from '@/utils/cookie'
 Vue.prototype.$cookie = cookie; // 在所有的组件中都可以使用 this.$cookie 访问到 cookie
 
+// 全局的自定义指令 参数1：指令的名字，参数2：生命周期的对象
+Vue.directive('autofocue2', {
+    inserted(el) { // dom元素插入到页面中后执行
+        // el就是使用这个指令的dom元素
+        el.focus()
+    },
+    // update() {
+    //     // 
+    // }
+})
+
 
 // 图片懒加载
 import { Lazyload } from 'vant';
