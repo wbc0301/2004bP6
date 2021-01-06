@@ -27,7 +27,7 @@
 export default {
     data() {
         return {
-            time: +new Date() - 2 * 60 * 60 * 1000,
+            time: +new Date() - 2 * 60 * 60 * 1000, // 两个小时之前的时间
         }
     },
     mounted() {
